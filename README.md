@@ -22,7 +22,7 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * Intel Core I3 12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W) / RX 560 896SP
 * Team T-create Clasic 2*8GB DDR4 3200Mhz
-* Broadcom BCM43142 802.11 bgn Wi-Fi M.2 (From Old HP Notebook, *Only for network lab on GNU/Linux)
+* Broadcom BCM43142 802.11 bgn Wi-Fi M.2 (From old HP Notebook, *Only for network lab on GNU/Linux)
 
 ## Confirmed Working
 
