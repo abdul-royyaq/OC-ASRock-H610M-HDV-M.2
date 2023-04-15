@@ -21,7 +21,9 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * ASRock H610M-HDV/M.2
 * Intel Core I3 12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W) / RX 560 896SP
-* Team T-create Clasic 2*8GB DDR4 3200Mhz
+* Team T-create Classic 2*8GB DDR4 3200Mhz
+* Adata SU650 240GB SATA SSD (For Hackintosh installation)
+* Team MP33 M.2 512GB PCIe SSD (For Linux installation, detected on macOS)
 * Broadcom BCM43142 802.11 bgn Wi-Fi M.2 (From old HP Notebook, *Only for network lab on GNU/Linux)
 
 ## Confirmed Working
@@ -30,6 +32,8 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * Intel I219-V Ethernet
 * Intel HD and Realtek AC-79 Audio
 * All USB Port
+* All SATA Port (AHCI mode)
+* NVME SSD
 * Intel and Radeon Sensors
 * Intel CPU Power Management
 * Broadcom BCM43142 (only) Bluetooth Works in Monterey with [BrcmPatchRAM3](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#broadcom) (AirDrop not supported by adapter)
