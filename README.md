@@ -38,4 +38,22 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * Intel CPU Power Management
 * Broadcom BCM43142 (only) Bluetooth Works in Monterey with [BrcmPatchRAM3](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#broadcom) (AirDrop not supported by adapter)
 
+## How To
+
+---
+
+### Create USB Installer
+
+To create a USB installer please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer).
+
+### Fetch and Plac EFI File
+
+* Download this [OpenCore EFI for ASRock H610M-HDV/M.2](https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip).
+
+* Extract archived file then place `EFI` folder into the EFI partition on the USB installer, for more information please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html).
+
+### Installation
+
+For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
+
 ---
