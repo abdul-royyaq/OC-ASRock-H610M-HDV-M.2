@@ -46,7 +46,7 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 To create a USB installer please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer).
 
-### Fetch and Plac EFI File
+### Fetch and Place EFI File
 
 * Download this [OpenCore EFI for ASRock H610M-HDV/M.2](https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip).
 
@@ -54,6 +54,24 @@ To create a USB installer please refer to [Dortania OpenCore Install Guide](http
 
 ### Installation
 
-For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html)
+For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html).
 
 ---
+
+## OpenCore Recipe (Source and Credit)
+
+* [OpenCore](https://github.com/acidanthera/OpenCorePkg)
+* [BsxM1](https://github.com/blackosx/BsxM1)
+* [AppleALC](https://github.com/acidanthera/AppleALC)
+* [CpuTopologyRebuild](https://github.com/b00t0x/CpuTopologyRebuild)
+* [IntelMausi](https://github.com/acidanthera/IntelMausi)
+* [Lilu](https://github.com/acidanthera/Lilu)
+* [NVMeFix](https://github.com/acidanthera/NVMeFix)
+* [RadeonSensor](https://github.com/aluveitie/RadeonSensor)
+* [RestrictEvents](https://github.com/acidanthera/RestrictEvents)
+* [SMCRadeonGPU](https://github.com/aluveitie/RadeonSensor) (part of RadeonSensor)
+* [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) (part of VirtualSMC)
+* [VirtualSMC](https://github.com/acidanthera/VirtualSMC)
+* [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
+
+----
