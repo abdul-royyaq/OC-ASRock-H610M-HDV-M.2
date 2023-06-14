@@ -56,12 +56,15 @@ To create a USB installer please refer to [Dortania OpenCore Install Guide](http
 
 For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html).
 
+`*After installation, don't forget to copy EFI folder from USB installer to the EFI partition on the HDD/SSD where the macOS is installed.`
+
 ---
 
-## OpenCore Recipe (Source and Credit)
+## OpenCore Recipe (Sources and Credits)
 
 * [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 * [BsxM1](https://github.com/blackosx/BsxM1)
+* [OcBinaryData](https://github.com/acidanthera/OcBinaryData)
 * [AppleALC](https://github.com/acidanthera/AppleALC)
 * [CpuTopologyRebuild](https://github.com/b00t0x/CpuTopologyRebuild)
 * [IntelMausi](https://github.com/acidanthera/IntelMausi)
@@ -69,6 +72,7 @@ For the installation process please refer to [Dortania OpenCore Install Guide](h
 * [NVMeFix](https://github.com/acidanthera/NVMeFix)
 * [RadeonSensor](https://github.com/aluveitie/RadeonSensor)
 * [RestrictEvents](https://github.com/acidanthera/RestrictEvents)
+* [SMCProcessor](https://github.com/acidanthera/VirtualSMC) (part of VirtualSMC)
 * [SMCRadeonGPU](https://github.com/aluveitie/RadeonSensor) (part of RadeonSensor)
 * [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) (part of VirtualSMC)
 * [VirtualSMC](https://github.com/acidanthera/VirtualSMC)
