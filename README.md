@@ -99,6 +99,7 @@ For the installation process please refer to [Dortania OpenCore Install Guide](h
 After installation, don't forget to copy `EFI` folder from USB installer to the EFI partition on the HDD/SSD where the macOS is installed.
 
 * Mount EFI partition
+
 Open Terminal and run
 
 ```bash
@@ -108,6 +109,7 @@ sudo diskutil mount diskXsY
 `*Remember diskXsY is your EFI disk partiton, use 'sudo diskutil list' to see all list of storage devices`
 
 * Copy EFI folder EFI Partition
+
 Manually copy EFI folder from USB installer to EFI partition.
 
 Have problem(s) after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install)
