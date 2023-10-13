@@ -1,8 +1,10 @@
 # OpenCore EFI for ASRock H610M-HDV/M.2
 
-Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
+Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
-![](https://i.imgur.com/7e2sFKK.png)
+![](https://i.imgur.com/jHFOiBt.png)
+
+`*Booting into Sonoma USB recovery is not possible, but it's possible to boot into Sonoma via an update from Ventura.`
 
 ---
 
@@ -22,7 +24,7 @@ Monterey and Ventura OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * Intel HDA & Realtek ALC897 Audio
 * USB
 * SATA
-* NVMe/NGFF SSD & WiFi ([Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide))
+* M.2/NGFF NVMe SSD & WiFi ([Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide))
 * Intel & Radeon Power Management & Sensors
 
 ## How To
@@ -56,7 +58,7 @@ chmod +x *
 * Write to USB
 
 ```bash
-sudo dd if=BaseSystem.img of=/dev/sdX status=progress
+sudo dd if=BaseSystem.img of=/dev/sdX bs=1G conv=sync status=progress
 ```
 
 `*Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use 'sudo fdisk -l' to see all list of storage devices`
@@ -71,20 +73,30 @@ To create a USB installer on Windows or other OS please refer to [Dortania OpenC
 git clone https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2 --depth 1 
 ```
 
+* Make EFI partiton
+
+`*In some case, EFI partition isn't available.`
+
+```bash
+sudo parted /dev/sdX mkpart primary fat32 0% 100%
+```
+
+`*Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use 'sudo fdisk -l' to see all list of storage devices.`
+
+```bash
+sudo mkfs.vfat /dev/sdXY -n EFI-USB
+```
+
+`*Remember sdXY is your EFI partion of USB installer, use 'sudo fdisk -l' to see all list of storage devices.`
+
 * Mount EFI and copy to EFI Partition
 
 ```bash
-sudo mount /dev/sdX /mnt
-cp -r OC-ASRock-H610M-HDV-M.2/EFI /mnt
+sudo mount /dev/sdXY /mnt
+sudo cp -r OC-ASRock-H610M-HDV-M.2/EFI /mnt
 ```
 
-`*Remember sdX is your EFI partion of USB installer, use 'sudo fdisk -l' to see all list of storage devices`
-
-Or/If in other OS
-
-* Manually download this [OpenCore EFI for ASRock H610M-HDV/M.2](https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip).
-
-* Extract archived file then place `EFI` folder into the EFI partition on the USB installer.
+`*Remember sdXY is your EFI partion of USB installer, use 'sudo fdisk -l' to see all list of storage devices.`
 
 For more information please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html).
 
@@ -96,11 +108,11 @@ For the installation process please refer to [Dortania OpenCore Install Guide](h
 
 ### Post-Installation
 
-After installation, don't forget to copy `EFI` folder from USB installer to the EFI partition on the HDD/SSD where the macOS is installed.
+Install EFI on macOS HDD/SSD.
 
 * Mount EFI partition
 
-Open Terminal and run
+Open macOS Terminal and run
 
 ```bash
 sudo diskutil mount diskXsY
@@ -108,11 +120,15 @@ sudo diskutil mount diskXsY
 
 `*Remember diskXsY is your EFI disk partiton, use 'sudo diskutil list' to see all list of storage devices`
 
-* Copy EFI folder EFI Partition
+* Copy EFI folder to EFI Partition
 
-Manually copy EFI folder from USB installer to EFI partition.
+```bash
+sudo cp -r /Volumes/EFI-USB/EFI /Volumes/EFI/
+```
 
-Have problem(s) after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install)
+`*Remember /Volumes/EFI is mount point of HDD/SSD EFI partition, diskutil automatically mount in /Volumes within partition name.`
+
+Have problems after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install)
 
 ---
 
@@ -136,3 +152,5 @@ Have problem(s) after installation?, please refer to [Dortania OpenCore Post-ins
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
 
 ----
+
+`For personal use only, commercialization of this EFI configuration is prohibited.`
