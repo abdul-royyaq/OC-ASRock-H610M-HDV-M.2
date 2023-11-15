@@ -67,6 +67,8 @@
 			<true/>
 			<key>EnableWriteUnprotector</key>
 			<true/>
+			<key>FixupAppleEfiImages</key>
+			<false/>
 			<key>ForceBooterSignature</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -82,7 +84,7 @@
 			<key>ProvideMaxSlide</key>
 			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
-			<false/>
+			<true/>
 			<key>ResizeAppleGpuBars</key>
 			<integer>0</integer>
 			<key>SetupVirtualMap</key>
@@ -326,13 +328,9 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data>
-			VQYKAAAAAAAAAAAAAAAAAA==
-			</data>
+			<data>VQYKAAAAAAAAAAAAAAAAAA==</data>
 			<key>Cpuid1Mask</key>
-			<data>
-			/////wAAAAAAAAAAAAAAAA==
-			</data>
+			<data>/////wAAAAAAAAAAAAAAAA==</data>
 			<key>DummyPowerManagement</key>
 			<false/>
 			<key>MaxKernel</key>
@@ -354,10 +352,10 @@
 			<false/>
 			<key>AppleXcpmForceBoost</key>
 			<true/>
-			<key>CustomPciSerialDevice</key>
-			<false/>
 			<key>CustomSMBIOSGuid</key>
 			<true/>
+			<key>CustomPciSerialDevice</key>
+			<false/>
 			<key>DisableIoMapper</key>
 			<false/>
 			<key>DisableIoMapperMapping</key>
@@ -482,11 +480,9 @@
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>PasswordHash</key>
-			<data>
-			</data>
+			<data></data>
 			<key>PasswordSalt</key>
-			<data>
-			</data>
+			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
@@ -511,9 +507,7 @@
 				<key>LineControl</key>
 				<integer>7</integer>
 				<key>PciDeviceInfo</key>
-				<data>
-				/w==
-				</data>
+				<data>/w==</data>
 				<key>RegisterAccessWidth</key>
 				<integer>8</integer>
 				<key>RegisterBase</key>
@@ -829,9 +823,7 @@
 				<key>boot-args</key>
 				<string>keepsyms=1 debug=0x100 agdpmod=pikera alcid=11 gfxrst=1 igfxonln=1</string>
 				<key>csr-active-config</key>
-				<data>
-				AAAAAA==
-				</data>
+				<data>AAAAAA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -850,10 +842,10 @@
 		</dict>
 		<key>LegacyOverwrite</key>
 		<false/>
-		<key>LegacySchema</key>
-		<dict/>
 		<key>WriteFlash</key>
 		<true/>
+		<key>LegacySchema</key>
+		<dict/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -865,16 +857,14 @@
 		<dict>
 			<key>AdviseFeatures</key>
 			<false/>
-			<key>MLB</key>
-			<string>C07804303GUKXPGUE</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
+			<key>MLB</key>
+			<string>C07804303GUKXPGUE</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>
-			BjRLt78Q
-			</data>
+			<data>BjRLt78Q</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
@@ -934,10 +924,10 @@
 			<integer>0</integer>
 			<key>PointerPollMask</key>
 			<integer>-1</integer>
-			<key>PointerPollMax</key>
-			<integer>80</integer>
 			<key>PointerPollMin</key>
 			<integer>10</integer>
+			<key>PointerPollMax</key>
+			<integer>80</integer>
 			<key>PointerSpeedDiv</key>
 			<integer>1</integer>
 			<key>PointerSpeedMul</key>
@@ -1422,10 +1412,10 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
-			<key>UIScale</key>
-			<integer>0</integer>
 			<key>UgaPassThrough</key>
 			<false/>
+			<key>UIScale</key>
+			<integer>0</integer>
 		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
@@ -1495,6 +1485,8 @@
 			<key>ResizeGpuBars</key>
 			<integer>-1</integer>
 			<key>ResizeUsePciRbIo</key>
+			<false/>
+			<key>ShimRetainProtocol</key>
 			<false/>
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>

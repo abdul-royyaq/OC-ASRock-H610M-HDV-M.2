@@ -4,8 +4,6 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ![](https://i.imgur.com/jHFOiBt.png)
 
-`*Booting into Sonoma USB recovery is not possible, but it's possible to boot into Sonoma via an update from Ventura.`
-
 ---
 
 ## System Configuration
@@ -132,12 +130,16 @@ Have problems after installation?, please refer to [Dortania OpenCore Post-insta
 
 ---
 
-## OpenCore Recipe (Sources and Credits)
+## LICENSE & CREDITS
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit).
+
+This project includes or depends on these following projects with subject to their respective licenses:
 
 * [OpenCore](https://github.com/acidanthera/OpenCorePkg)
 * [BsxM1](https://github.com/blackosx/BsxM1)
 * [OcBinaryData](https://github.com/acidanthera/OcBinaryData)
-* [btrfs_x64.efi](https://sourceforge.net/p/refind) (rEFInd)
+* [rEFInd](https://sourceforge.net/p/refind)
 * [AppleALC](https://github.com/acidanthera/AppleALC)
 * [CpuTopologyRebuild](https://github.com/b00t0x/CpuTopologyRebuild)
 * [IntelMausi](https://github.com/acidanthera/IntelMausi)
@@ -145,12 +147,7 @@ Have problems after installation?, please refer to [Dortania OpenCore Post-insta
 * [NVMeFix](https://github.com/acidanthera/NVMeFix)
 * [RadeonSensor](https://github.com/aluveitie/RadeonSensor)
 * [RestrictEvents](https://github.com/acidanthera/RestrictEvents)
-* [SMCProcessor](https://github.com/acidanthera/VirtualSMC) (VirtualSMC)
-* [SMCRadeonGPU](https://github.com/aluveitie/RadeonSensor) (RadeonSensor)
-* [SMCSuperIO](https://github.com/acidanthera/VirtualSMC) (VirtualSMC)
 * [VirtualSMC](https://github.com/acidanthera/VirtualSMC)
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
 
 ----
-
-`For personal use only, commercialization of this EFI configuration is prohibited.`
