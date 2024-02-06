@@ -8,28 +8,27 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ## System Configuration
 
-* ASRock H610M-HDV/M.2
+* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (Factory BIOS), 9.01 - 16.02*
 * Intel Core i3-12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W)
 * Team T-create Classic 2*8GB DDR4 3200Mhz
-* Adata SU650 SATA 240GB (Hackintosh)
-* Team MP33 M.2 NVMe 512GB (ArchLinux)
+* Adata XPG SX8200 Pro M.2 NVMe 512GB
 
 ## Confirmed Working
 
-* Sleep and Wake
+* Sleep & Wake
 * Intel I219-V Ethernet
-* Intel HDA & Realtek ALC897 Audio
-* USB
-* SATA
-* M.2/NGFF NVMe SSD & WiFi ([Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide))
+* Realtek ALC897 Audio
+* All USB Port
+* All SATA Port
+* M.2/NGFF NVMe SSD & [Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide)
 * Intel & Radeon Power Management & Sensors
 
 ## How To
 
 ---
 
-### Create USB Installer (Linux, EZ way)
+### Create USB Installer on Linux
 
 * Fetch some tools
 
@@ -56,10 +55,10 @@ chmod +x *
 * Write to USB
 
 ```bash
-sudo dd if=BaseSystem.img of=/dev/sdX bs=1G conv=sync status=progress
+sudo dd if=BaseSystem.img of=/dev/sdX bs=100M conv=sync status=progress
 ```
 
-`*Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use 'sudo fdisk -l' to see all list of storage devices`
+**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l to see all list of storage devices*
 
 To create a USB installer on Windows or other OS please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer).
 
@@ -73,19 +72,19 @@ git clone https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2 --depth 1
 
 * Make EFI partiton
 
-`*In some case, EFI partition isn't available.`
+**In some case, EFI partition isn't available.*
 
 ```bash
-sudo parted /dev/sdX mkpart primary fat32 0% 100%
+sudo parted /dev/sdX mkpart efi 0% 100%
 ```
 
-`*Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use 'sudo fdisk -l' to see all list of storage devices.`
+**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l` to see all list of storage devices.*
 
 ```bash
-sudo mkfs.vfat /dev/sdXY -n EFI-USB
+sudo mkfs.fat -F 32 /dev/sdXY -n EFI-USB
 ```
 
-`*Remember sdXY is your EFI partion of USB installer, use 'sudo fdisk -l' to see all list of storage devices.`
+**Remember sdXY is your EFI partion of USB installer, use `sudo fdisk -l` to see all list of storage devices.*
 
 * Mount EFI and copy to EFI Partition
 
@@ -94,7 +93,7 @@ sudo mount /dev/sdXY /mnt
 sudo cp -r OC-ASRock-H610M-HDV-M.2/EFI /mnt
 ```
 
-`*Remember sdXY is your EFI partion of USB installer, use 'sudo fdisk -l' to see all list of storage devices.`
+**Remember sdXY is your EFI partion of USB installer, use `sudo fdisk -l` to see all list of storage devices.*
 
 For more information please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html).
 
@@ -102,7 +101,7 @@ For more information please refer to [Dortania OpenCore Install Guide](https://d
 
 For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html).
 
-`*Take a note, please create a EFI partition at lease 200M at partitioning stage.`
+**Take a note, please create a EFI partition at lease 200M at partitioning stage.*
 
 ### Post-Installation
 
@@ -116,7 +115,7 @@ Open macOS Terminal and run
 sudo diskutil mount diskXsY
 ```
 
-`*Remember diskXsY is your EFI disk partiton, use 'sudo diskutil list' to see all list of storage devices`
+**Remember diskXsY is your EFI disk partiton, use `sudo diskutil list` to see all list of storage devices*
 
 * Copy EFI folder to EFI Partition
 
@@ -124,9 +123,17 @@ sudo diskutil mount diskXsY
 sudo cp -r /Volumes/EFI-USB/EFI /Volumes/EFI/
 ```
 
-`*Remember /Volumes/EFI is mount point of HDD/SSD EFI partition, diskutil automatically mount in /Volumes within partition name.`
+**Remember `/Volumes/EFI` is mount point of HDD/SSD EFI partition, diskutil automatically mount in `/Volumes` within partition name.*
 
-Have problems after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install)
+Have problems after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install).
+
+## Important Notes
+
+* This EFI Platforminfo is changed to MacPro7.1 again, with pre-configured memory mappings as templates, [you can change](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html) according to your system configuration.
+
+* CpuTopologyRebuild is disabled, you don't need this if you are using a P-Core only CPU e.g i3-12100/F, this also makes the type 2 hypervisor detect that there are only 2 CPU cores.
+
+* Don't change MinKernel to 21.x or later, this will make your macOS unable to wake up from sleep.
 
 ---
 

@@ -168,7 +168,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CpuTopologyRebuild</string>
 				<key>MaxKernel</key>
@@ -328,13 +328,9 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data>
-			VQYKAAAAAAAAAAAAAAAAAA==
-			</data>
+			<data>VQYKAAAAAAAAAAAAAAAAAA==</data>
 			<key>Cpuid1Mask</key>
-			<data>
-			/////wAAAAAAAAAAAAAAAA==
-			</data>
+			<data>/////wAAAAAAAAAAAAAAAA==</data>
 			<key>DummyPowerManagement</key>
 			<false/>
 			<key>MaxKernel</key>
@@ -356,10 +352,10 @@
 			<false/>
 			<key>AppleXcpmForceBoost</key>
 			<true/>
-			<key>CustomPciSerialDevice</key>
-			<false/>
 			<key>CustomSMBIOSGuid</key>
 			<true/>
+			<key>CustomPciSerialDevice</key>
+			<false/>
 			<key>DisableIoMapper</key>
 			<false/>
 			<key>DisableIoMapperMapping</key>
@@ -484,11 +480,9 @@
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>PasswordHash</key>
-			<data>
-			</data>
+			<data></data>
 			<key>PasswordSalt</key>
-			<data>
-			</data>
+			<data></data>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
@@ -513,9 +507,7 @@
 				<key>LineControl</key>
 				<integer>7</integer>
 				<key>PciDeviceInfo</key>
-				<data>
-				/w==
-				</data>
+				<data>/w==</data>
 				<key>RegisterAccessWidth</key>
 				<integer>8</integer>
 				<key>RegisterBase</key>
@@ -829,21 +821,13 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 agdpmod=pikera alcid=11 gfxrst=1 igfxonln=1</string>
+				<string>keepsyms=1 debug=0x100 alcid=11 agdpmod=pikera gfxrst=1 igfxonln=1</string>
 				<key>csr-active-config</key>
-				<data>
-				AAAAAA==
-				</data>
+				<data>AAAAAA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
 		<dict>
-			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
-			<array>
-				<string>revcpuname</string>
-				<string>revcpu</string>
-				<string>revpatch</string>
-			</array>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
 				<string>boot-args</string>
@@ -852,41 +836,365 @@
 		</dict>
 		<key>LegacyOverwrite</key>
 		<false/>
-		<key>LegacySchema</key>
-		<dict/>
 		<key>WriteFlash</key>
 		<true/>
+		<key>LegacySchema</key>
+		<dict/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
 		<key>Automatic</key>
 		<true/>
 		<key>CustomMemory</key>
-		<false/>
+		<true/>
+		<key>DataHub</key>
+		<dict>
+			<key>ARTFrequency</key>
+			<integer>0</integer>
+			<key>BoardProduct</key>
+			<string>Mac-27AD2F918AE68F61</string>
+			<key>BoardRevision</key>
+			<data>CQ==</data>
+			<key>DevicePathsSupported</key>
+			<integer>0</integer>
+			<key>FSBFrequency</key>
+			<integer>0</integer>
+			<key>InitialTSC</key>
+			<integer>0</integer>
+			<key>PlatformName</key>
+			<string></string>
+			<key>SmcBranch</key>
+			<data></data>
+			<key>SmcPlatform</key>
+			<data>ajE2MAAAAAA=</data>
+			<key>SmcRevision</key>
+			<data></data>
+			<key>StartupPowerEvents</key>
+			<integer>0</integer>
+			<key>SystemProductName</key>
+			<string>MacPro7,1</string>
+			<key>SystemSerialNumber</key>
+			<string>F5KZ30QBP7QM</string>
+			<key>SystemUUID</key>
+			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
+		</dict>
 		<key>Generic</key>
 		<dict>
 			<key>AdviseFeatures</key>
 			<false/>
-			<key>MLB</key>
-			<string>C07804303GUKXPGUE</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
+			<key>MLB</key>
+			<string>F5K929902J9FHDDCB</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>
-			BjRLt78Q
-			</data>
+			<data>BjRLt78Q</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>Macmini8,1</string>
+			<string>MacPro7,1</string>
 			<key>SystemSerialNumber</key>
-			<string>C07W57ZFJYVX</string>
+			<string>F5KZ30QBP7QM</string>
 			<key>SystemUUID</key>
-			<string>060078A2-5C18-4EFB-BD30-1A2F4D9FA770</string>
+			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
+		</dict>
+		<key>Memory</key>
+		<dict>
+			<key>DataWidth</key>
+			<integer>64</integer>
+			<key>Devices</key>
+			<array>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM
+EmptyDIMM
+EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_A1</string>
+					<key>Manufacturer</key>
+					<string>Template memory</string>
+					<key>PartNumber</key>
+					<string>You can edit</string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>3200</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_B1</string>
+					<key>Manufacturer</key>
+					<string>Template memory</string>
+					<key>PartNumber</key>
+					<string>You can edit</string>
+					<key>SerialNumber</key>
+					<string></string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Speed</key>
+					<integer>3200</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+			<key>ErrorCorrection</key>
+			<integer>3</integer>
+			<key>FormFactor</key>
+			<integer>9</integer>
+			<key>MaxCapacity</key>
+			<integer>68719476736</integer>
+			<key>TotalWidth</key>
+			<integer>64</integer>
+			<key>Type</key>
+			<integer>26</integer>
+			<key>TypeDetail</key>
+			<integer>128</integer>
+		</dict>
+		<key>SMBIOS</key>
+		<dict>
+			<key>BIOSReleaseDate</key>
+			<string>10/05/2023</string>
+			<key>BIOSVendor</key>
+			<string></string>
+			<key>BIOSVersion</key>
+			<string>2020.41.1.0.0</string>
+			<key>BoardAssetTag</key>
+			<string>Base Board Asset Tag</string>
+			<key>BoardLocationInChassis</key>
+			<string>Part Component</string>
+			<key>BoardManufacturer</key>
+			<string></string>
+			<key>BoardProduct</key>
+			<string>Mac-27AD2F918AE68F61</string>
+			<key>BoardSerialNumber</key>
+			<string>F5K929902J9FHDDCB</string>
+			<key>BoardType</key>
+			<integer>10</integer>
+			<key>BoardVersion</key>
+			<string>MacPro7,1</string>
+			<key>ChassisAssetTag</key>
+			<string></string>
+			<key>ChassisManufacturer</key>
+			<string></string>
+			<key>ChassisSerialNumber</key>
+			<string>F5KZ30QBP7QM</string>
+			<key>ChassisType</key>
+			<integer>7</integer>
+			<key>ChassisVersion</key>
+			<string>Mac-27AD2F918AE68F61</string>
+			<key>FirmwareFeatures</key>
+			<data>ZvCv/QgAAAA=</data>
+			<key>FirmwareFeaturesMask</key>
+			<data>f////wgAAAA=</data>
+			<key>PlatformFeature</key>
+			<integer>0</integer>
+			<key>ProcessorType</key>
+			<integer>3842</integer>
+			<key>SmcVersion</key>
+			<data></data>
+			<key>SystemFamily</key>
+			<string>MacPro</string>
+			<key>SystemManufacturer</key>
+			<string></string>
+			<key>SystemProductName</key>
+			<string>MacPro7,1</string>
+			<key>SystemSKUNumber</key>
+			<string>System SKU#</string>
+			<key>SystemSerialNumber</key>
+			<string>F5KZ30QBP7QM</string>
+			<key>SystemUUID</key>
+			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
+			<key>SystemVersion</key>
+			<string>1.0</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -936,10 +1244,10 @@
 			<integer>0</integer>
 			<key>PointerPollMask</key>
 			<integer>-1</integer>
-			<key>PointerPollMax</key>
-			<integer>80</integer>
 			<key>PointerPollMin</key>
 			<integer>10</integer>
+			<key>PointerPollMax</key>
+			<integer>80</integer>
 			<key>PointerSpeedDiv</key>
 			<integer>1</integer>
 			<key>PointerSpeedMul</key>
@@ -1424,10 +1732,10 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
-			<key>UIScale</key>
-			<integer>0</integer>
 			<key>UgaPassThrough</key>
 			<false/>
+			<key>UIScale</key>
+			<integer>0</integer>
 		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
