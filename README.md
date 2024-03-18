@@ -16,13 +16,15 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ## Confirmed Working
 
+* AppleID
 * Sleep & Wake
 * Intel I219-V Ethernet
-* Realtek ALC897 Audio
-* All USB Port
+* Realtek ALC897 Audio **Includes front panel audio*
+* All USB Port **Includes front panel USB 2.0 & 3.0*
 * All SATA Port
-* M.2/NGFF NVMe SSD & [Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide)
-* Intel & Radeon Power Management & Sensors
+* M.2/NGFF NVMe SSD & WiFi/BT **Need [Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide) & [Specific kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth)*
+* Intel VT, Power Management & Sensors
+* Radeon Graphics Acceleration, Power Management & Sensors **Will just work on [Native Radeon GPU](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html#native-amd-gpus)*
 
 ## How To
 
@@ -33,10 +35,10 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 * Fetch some tools
 
 ```bash
-mkdir fetch-macOS &&
-cd fetch-macOS &&
-wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py &&
-wget https://github.com/foxlet/macOS-Simple-KVM/raw/master/tools/dmg2img &&
+mkdir fetch-macOS
+cd fetch-macOS
+wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py
+wget https://github.com/foxlet/macOS-Simple-KVM/raw/master/tools/dmg2img
 chmod +x *
 ```
 
@@ -58,7 +60,7 @@ chmod +x *
 sudo dd if=BaseSystem.img of=/dev/sdX bs=100M conv=sync status=progress
 ```
 
-**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l to see all list of storage devices*
+**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l` to see all list of storage devices*
 
 To create a USB installer on Windows or other OS please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer).
 
@@ -129,11 +131,11 @@ Have problems after installation?, please refer to [Dortania OpenCore Post-insta
 
 ## Important Notes
 
-* This EFI Platforminfo is changed to MacPro7.1 again, with pre-configured memory mappings as templates, [you can change](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html) according to your system configuration.
+* This EFI comes with a memory mapping template for ASRock H610M-HDV/M.2, [you can change](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html) according to your memory module configuration e.g `Manufacture`, `PartNumber`, `SerialNumber`, `Size`, and `Speed`.
 
-* CpuTopologyRebuild is disabled, you don't need this if you are using a P-Core only CPU e.g i3-12100/F, this also makes the type 2 hypervisor detect that there are only 2 CPU cores.
+* `CpuTopologyRebuild.kext` is disabled by default, you don't need this if you are using a P-Core only CPU e.g i3-12100/F, this also makes the type 2 hypervisor e.g VirtualBox detect that there are only 2 CPU cores.
 
-* Don't change MinKernel to 21.x or later, this will make your macOS unable to wake up from sleep.
+* Don't change `MinKernel` variable to 21.x or later, this will make your macOS unable to wake up from sleep.
 
 ---
 

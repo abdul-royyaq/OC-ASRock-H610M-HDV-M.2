@@ -167,7 +167,7 @@
 				<string>CpuTopologyRebuild.kext</string>
 				<key>Comment</key>
 				<string></string>
-				<key>Enabled</key>
+				<key>Disabled</key>
 				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CpuTopologyRebuild</string>
@@ -909,91 +909,35 @@
 			<array>
 				<dict>
 					<key>AssetTag</key>
-					<string></string>
+					<string>9876543210</string>
 					<key>BankLocator</key>
-					<string></string>
+					<string>BANK 0</string>
 					<key>DeviceLocator</key>
-					<string>DIMM_EMPTY</string>
+					<string>Controller0-ChannelA-DIMM0</string>
 					<key>Manufacturer</key>
-					<string></string>
+					<string>Memory Brand</string>
 					<key>PartNumber</key>
-					<string></string>
+					<string>Memory Model</string>
 					<key>SerialNumber</key>
-					<string>EmptyDIMM
-EmptyDIMM
-EmptyDIMM</string>
+					<string>Memory s/n</string>
 					<key>Size</key>
-					<integer>1</integer>
+					<integer>8192</integer>
 					<key>Speed</key>
-					<integer>1</integer>
+					<integer>3200</integer>
 				</dict>
 				<dict>
 					<key>AssetTag</key>
-					<string></string>
+					<string>9876543210</string>
 					<key>BankLocator</key>
-					<string></string>
+					<string>BANK 0</string>
 					<key>DeviceLocator</key>
-					<string>DIMM_EMPTY</string>
+					<string>Controller1-ChannelA-DIMM0</string>
 					<key>Manufacturer</key>
-					<string></string>
+					<string>Memory Brand</string>
 					<key>PartNumber</key>
-					<string></string>
+					<string>Memory Model</string>
 					<key>SerialNumber</key>
-					<string>EmptyDIMM</string>
-					<key>Size</key>
-					<integer>1</integer>
-					<key>Speed</key>
-					<integer>1</integer>
-				</dict>
-				<dict>
-					<key>AssetTag</key>
-					<string></string>
-					<key>BankLocator</key>
-					<string></string>
-					<key>DeviceLocator</key>
-					<string>DIMM_EMPTY</string>
-					<key>Manufacturer</key>
-					<string></string>
-					<key>PartNumber</key>
-					<string></string>
-					<key>SerialNumber</key>
-					<string>EmptyDIMM</string>
-					<key>Size</key>
-					<integer>1</integer>
-					<key>Speed</key>
-					<integer>1</integer>
-				</dict>
-				<dict>
-					<key>AssetTag</key>
-					<string></string>
-					<key>BankLocator</key>
-					<string></string>
-					<key>DeviceLocator</key>
-					<string>DIMM_EMPTY</string>
-					<key>Manufacturer</key>
-					<string></string>
-					<key>PartNumber</key>
-					<string></string>
-					<key>SerialNumber</key>
-					<string>EmptyDIMM</string>
-					<key>Size</key>
-					<integer>1</integer>
-					<key>Speed</key>
-					<integer>1</integer>
-				</dict>
-				<dict>
-					<key>AssetTag</key>
-					<string></string>
-					<key>BankLocator</key>
-					<string></string>
-					<key>DeviceLocator</key>
-					<string>DIMM_A1</string>
-					<key>Manufacturer</key>
-					<string>Template memory</string>
-					<key>PartNumber</key>
-					<string>You can edit</string>
-					<key>SerialNumber</key>
-					<string></string>
+					<string>Memory s/n</string>
 					<key>Size</key>
 					<integer>8192</integer>
 					<key>Speed</key>
@@ -1041,17 +985,71 @@ EmptyDIMM</string>
 					<key>BankLocator</key>
 					<string></string>
 					<key>DeviceLocator</key>
-					<string>DIMM_B1</string>
+					<string>DIMM_EMPTY</string>
 					<key>Manufacturer</key>
-					<string>Template memory</string>
-					<key>PartNumber</key>
-					<string>You can edit</string>
-					<key>SerialNumber</key>
 					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
 					<key>Size</key>
-					<integer>8192</integer>
+					<integer>1</integer>
 					<key>Speed</key>
-					<integer>3200</integer>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AssetTag</key>
+					<string></string>
+					<key>BankLocator</key>
+					<string></string>
+					<key>DeviceLocator</key>
+					<string>DIMM_EMPTY</string>
+					<key>Manufacturer</key>
+					<string></string>
+					<key>PartNumber</key>
+					<string></string>
+					<key>SerialNumber</key>
+					<string>EmptyDIMM</string>
+					<key>Size</key>
+					<integer>1</integer>
+					<key>Speed</key>
+					<integer>1</integer>
 				</dict>
 				<dict>
 					<key>AssetTag</key>
@@ -1178,7 +1176,7 @@ EmptyDIMM</string>
 			<key>PlatformFeature</key>
 			<integer>0</integer>
 			<key>ProcessorType</key>
-			<integer>3842</integer>
+			<integer>0</integer>
 			<key>SmcVersion</key>
 			<data></data>
 			<key>SystemFamily</key>
