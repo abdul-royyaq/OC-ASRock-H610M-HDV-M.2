@@ -57,7 +57,7 @@ chmod +x *
 * Write to USB
 
 ```bash
-sudo dd if=BaseSystem.img of=/dev/sdX bs=100M conv=sync status=progress
+sudo dd if=BaseSystem.img of=/dev/sdX bs=100M conv=fsync status=progress
 ```
 
 **Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l` to see all list of storage devices*
@@ -114,7 +114,7 @@ Install EFI on macOS HDD/SSD.
 Open macOS Terminal and run
 
 ```bash
-sudo diskutil mount diskXsY
+sudo diskutil diskXsY
 ```
 
 **Remember diskXsY is your EFI disk partiton, use `sudo diskutil list` to see all list of storage devices*
@@ -137,6 +137,8 @@ Have problems after installation?, please refer to [Dortania OpenCore Post-insta
 
 * Don't change `MinKernel` variable to 21.x or later, this will make your macOS unable to wake up from sleep.
 
+* Please [generate new SN and MLB](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-macserial) if getting trouble with iServices.
+
 ---
 
 ## LICENSE & CREDITS
@@ -145,17 +147,17 @@ This project is licensed under the [MIT License](https://opensource.org/license/
 
 This project includes or depends on these following projects with subject to their respective licenses:
 
-* [OpenCore](https://github.com/acidanthera/OpenCorePkg)
-* [BsxM1](https://github.com/blackosx/BsxM1)
-* [OcBinaryData](https://github.com/acidanthera/OcBinaryData)
-* [rEFInd](https://sourceforge.net/p/refind)
 * [AppleALC](https://github.com/acidanthera/AppleALC)
+* [BsxM1](https://github.com/blackosx/BsxM1)
 * [CpuTopologyRebuild](https://github.com/b00t0x/CpuTopologyRebuild)
 * [IntelMausi](https://github.com/acidanthera/IntelMausi)
 * [Lilu](https://github.com/acidanthera/Lilu)
 * [NVMeFix](https://github.com/acidanthera/NVMeFix)
-* [RadeonSensor](https://github.com/aluveitie/RadeonSensor)
+* [OcBinaryData](https://github.com/acidanthera/OcBinaryData)
+* [OpenCore](https://github.com/acidanthera/OpenCorePkg)
+* [rEFInd](https://sourceforge.net/p/refind)
 * [RestrictEvents](https://github.com/acidanthera/RestrictEvents)
+* [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors)
 * [VirtualSMC](https://github.com/acidanthera/VirtualSMC)
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
 
