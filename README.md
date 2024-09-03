@@ -30,7 +30,7 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ---
 
-### Create USB Installer on Linux
+### Easy Way to Create a USB Installer on Linux (Can use Live USB)
 
 * Fetch some tools
 
@@ -114,7 +114,8 @@ Install EFI on macOS HDD/SSD.
 Open macOS Terminal and run
 
 ```bash
-sudo diskutil diskXsY
+sudo mkdir /Volumes/EFI
+sudo mount -t msdos /dev/diskXsY /Volumes/EFI
 ```
 
 **Remember diskXsY is your EFI disk partiton, use `sudo diskutil list` to see all list of storage devices*
@@ -122,10 +123,10 @@ sudo diskutil diskXsY
 * Copy EFI folder to EFI Partition
 
 ```bash
-sudo cp -r /Volumes/EFI-USB/EFI /Volumes/EFI/
+sudo cp -rv /Volumes/EFI-USB/EFI /Volumes/EFI
+sudo umount /Volumes/EFI
+sudo rm -r /Volumes/EFI
 ```
-
-**Remember `/Volumes/EFI` is mount point of HDD/SSD EFI partition, diskutil automatically mount in `/Volumes` within partition name.*
 
 Have problems after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install).
 
@@ -154,10 +155,10 @@ This project includes or depends on these following projects with subject to the
 * [Lilu](https://github.com/acidanthera/Lilu)
 * [NVMeFix](https://github.com/acidanthera/NVMeFix)
 * [OcBinaryData](https://github.com/acidanthera/OcBinaryData)
-* [OpenCore](https://github.com/acidanthera/OpenCorePkg)
+* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
 * [rEFInd](https://sourceforge.net/p/refind)
 * [RestrictEvents](https://github.com/acidanthera/RestrictEvents)
-* [SMCRadeonSensor](https://github.com/ChefKissInc/SMCRadeonSensors)
+* [SMCRadeonSensors](https://github.com/ChefKissInc/SMCRadeonSensors)
 * [VirtualSMC](https://github.com/acidanthera/VirtualSMC)
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
 
