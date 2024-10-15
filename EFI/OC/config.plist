@@ -168,7 +168,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<false/> <!-- Change `true` to enable CpuTopologyRebuild.kext -->
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CpuTopologyRebuild</string>
 				<key>MaxKernel</key>
@@ -308,6 +308,7 @@
 		<key>Block</key>
 		<array/>
 		<key>Emulate</key>
+		<!-- Don't change MinKernel larger or smaller than 20.0.0 to avoid problems with not being able to suspend or sleep -->
 		<dict>
 			<key>Cpuid1Data</key>
 			<data>VQYKAAAAAAAAAAAAAAAAAA==</data>
@@ -318,7 +319,7 @@
 			<key>MaxKernel</key>
 			<string></string>
 			<key>MinKernel</key>
-			<string>20.0.0</string>
+			<string>20.0.0</string> <!-- Leave it 20.0.0 -->
 		</dict>
 		<key>Force</key>
 		<array/>
@@ -380,7 +381,7 @@
 			<key>FuzzyMatch</key>
 			<false/>
 			<key>KernelArch</key>
-			<string>Auto</string>
+			<string>x86_64</string>
 			<key>KernelCache</key>
 			<string>Auto</string>
 		</dict>
@@ -861,6 +862,7 @@
 			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
 		</dict>
 		<key>Generic</key>
+		<!-- Generate new MLB and SystemSerialNumber if there is a problem with iServices, use macserial utility https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-macserial -->
 		<dict>
 			<key>AdviseFeatures</key>
 			<false/>
@@ -869,7 +871,7 @@
 			<key>MLB</key>
 			<string>F5K929902J9FHDDCB</string>
 			<key>ProcessorType</key>
-			<integer>0</integer>
+			<integer>0</integer> <!-- Leave value at 0, in some cases it will display incorrect CPU information if you change this value -->
 			<key>ROM</key>
 			<data>BjRLt78Q</data>
 			<key>SpoofVendor</key>
@@ -884,6 +886,7 @@
 			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
 		</dict>
 		<key>Memory</key>
+		<!-- Modify memory Manufacturer, PartNumber, SerialNumber, Size and Speed ​​to match your system, find memory information with dmidecode https://github.com/acidanthera/dmidecode -->
 		<dict>
 			<key>DataWidth</key>
 			<integer>64</integer>
@@ -897,15 +900,15 @@
 					<key>DeviceLocator</key>
 					<string>Controller0-ChannelA-DIMM0</string>
 					<key>Manufacturer</key>
-					<string>Memory Brand</string>
+					<string>Brand</string> <!-- Modify memory manufacture of brand, find with `./dmidecode -t memory | grep "Manufacturer:"` -->
 					<key>PartNumber</key>
-					<string>Memory Model</string>
+					<string>PN</string> <!-- Modify memory part number, find with `./dmidecode -t memory | grep "Part Number:"` -->
 					<key>SerialNumber</key>
-					<string>Memory s/n</string>
+					<string>SN</string> <!-- Modify memory serial number, find with `./dmidecode -t memory | grep "Serial Number:"` -->
 					<key>Size</key>
-					<integer>8192</integer>
+					<integer>8192</integer> <!-- Modify memory size, in MB e.g 1GB = 1024MB -->
 					<key>Speed</key>
-					<integer>3200</integer>
+					<integer>3200</integer> <!-- Modify memory speed, in MHz -->
 				</dict>
 				<dict>
 					<key>AssetTag</key>
@@ -915,15 +918,15 @@
 					<key>DeviceLocator</key>
 					<string>Controller1-ChannelA-DIMM0</string>
 					<key>Manufacturer</key>
-					<string>Memory Brand</string>
+					<string>Brand</string> <!-- Modify memory manufacture of brand, find with `./dmidecode -t memory | grep "Manufacturer:"` -->
 					<key>PartNumber</key>
-					<string>Memory Model</string>
+					<string>PN</string> <!-- Modify memory part number, find with `./dmidecode -t memory | grep "Part Number:"` -->
 					<key>SerialNumber</key>
-					<string>Memory s/n</string>
+					<string>SN</string> <!-- Modify memory serial number, find with `./dmidecode -t memory | grep "Serial Number:"` -->
 					<key>Size</key>
-					<integer>8192</integer>
+					<integer>8192</integer> <!-- Modify memory size, in MB e.g 1GB = 1024MB -->
 					<key>Speed</key>
-					<integer>3200</integer>
+					<integer>3200</integer> <!-- Modify memory speed, in MHz -->
 				</dict>
 				<dict>
 					<key>AssetTag</key>
@@ -1136,7 +1139,7 @@
 			<key>BoardProduct</key>
 			<string>Mac-27AD2F918AE68F61</string>
 			<key>BoardSerialNumber</key>
-			<string>F5K929902J9FHDDCB</string>
+			<string>F5K929902J9FHDDCB</string> <!-- Match with `PlatformInfo > Generic > MLB` -->
 			<key>BoardType</key>
 			<integer>10</integer>
 			<key>BoardVersion</key>
@@ -1146,7 +1149,7 @@
 			<key>ChassisManufacturer</key>
 			<string></string>
 			<key>ChassisSerialNumber</key>
-			<string>F5KZ30QBP7QM</string>
+			<string>F5KZ30QBP7QM</string> <!-- Match with `PlatformInfo > Generic > SystemSerialNumber` -->
 			<key>ChassisType</key>
 			<integer>7</integer>
 			<key>ChassisVersion</key>
@@ -1158,7 +1161,7 @@
 			<key>PlatformFeature</key>
 			<integer>0</integer>
 			<key>ProcessorType</key>
-			<integer>0</integer>
+			<integer>0</integer> <!-- Leave value at 0, in some cases it will display incorrect CPU information if you change this value -->
 			<key>SmcVersion</key>
 			<data></data>
 			<key>SystemFamily</key>
@@ -1170,7 +1173,7 @@
 			<key>SystemSKUNumber</key>
 			<string>System SKU#</string>
 			<key>SystemSerialNumber</key>
-			<string>F5KZ30QBP7QM</string>
+			<string>F5KZ30QBP7QM</string> <!-- Match with `PlatformInfo > Generic > SystemSerialNumber` -->
 			<key>SystemUUID</key>
 			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>
 			<key>SystemVersion</key>

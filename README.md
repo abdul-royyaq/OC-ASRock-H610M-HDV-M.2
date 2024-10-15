@@ -1,6 +1,6 @@
 # OpenCore EFI for ASRock H610M-HDV/M.2
 
-Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
+Monterey, Ventura, Sonoma and Sequoia OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ![](https://i.imgur.com/jHFOiBt.png)
 
@@ -8,7 +8,7 @@ Monterey, Ventura and Sonoma OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ## System Configuration
 
-* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (Factory BIOS), 9.01 - 16.02*
+* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (Factory BIOS), 9.01 - 18.03*
 * Intel Core i3-12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W)
 * Team T-create Classic 2*8GB DDR4 3200Mhz
@@ -132,13 +132,13 @@ Have problems after installation?, please refer to [Dortania OpenCore Post-insta
 
 ## Important Notes
 
-* This EFI comes with a memory mapping template for ASRock H610M-HDV/M.2, [you can change](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html) according to your memory module configuration e.g `Manufacture`, `PartNumber`, `SerialNumber`, `Size`, and `Speed`.
+* Modify memory `Manufacturer`, `PartNumber`, `SerialNumber`, `Size` and `Speed` ​​to match your system, [Read more information about memory mapping](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html#mapping-our-memory).
 
-* `CpuTopologyRebuild.kext` is disabled by default, you don't need this if you are using a P-Core only CPU e.g i3-12100/F, this also makes the type 2 hypervisor e.g VirtualBox detect that there are only 2 CPU cores.
+* `CpuTopologyRebuild.kext` is disabled by default, enable it if you have a CPU with P-Core and E-Core.
 
-* Don't change `MinKernel` variable to 21.x or later, this will make your macOS unable to wake up from sleep.
+* Don't change `MinKernel` larger or smaller than `20.0.0` to avoid problems with not being able to suspend or sleep.
 
-* Please [generate new SN and MLB](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-macserial) if getting trouble with iServices.
+* Generate new SMBIOS or just [generate new SN and MLB using macserial utility](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-macserial) if getting trouble with iServices.
 
 ---
 
