@@ -1,5 +1,15 @@
 OpenCore Changelog
 ==================
+#### v1.0.3
+- Fixed support for `AMD_CPU_EXT_FAMILY_1AH`, thx @Shaneee
+- Fixed EHCI handoff logic in OpenDuet, causing older machines to hang at start
+- Added Arrow Lake CPU detection
+- Fixed Raptor Lake CPU detection
+- Supported booting with TuneD in Fedora 41 in OpenLinuxBoot
+- Fixed failure of vault `sign.command` to insert signature in correct location in some circumstances
+- Added OpenNetworkBoot driver to support HTTP(S) and PXE boot
+- Supported DMG loading and verification (e.g. macOS Recovery) over HTTP(S) boot
+
 #### v1.0.2
 - Fixed error in macrecovery when running headless, thx @mkorje
 - Added support for `AMD_CPU_EXT_FAMILY_1AH`, thx @Shaneee
