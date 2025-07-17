@@ -8,110 +8,105 @@ Monterey, Ventura, Sonoma and Sequoia OpenCore EFI configuration for ASRock H610
 
 ## System Configuration
 
-* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (Factory BIOS), 9.01 - 18.03*
+* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (factory BIOS), 9.01 - 19.03*
 * Intel Core i3-12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W)
 * Team T-create Classic 2*8GB DDR4 3200Mhz
-* Adata XPG SX8200 Pro M.2 NVMe 512GB
+* SK hynix BC901 NVMe 256GB
 
 ## Confirmed Working
 
 * AppleID
-* Sleep & Wake
-* Intel I219-V Ethernet
-* Realtek ALC897 Audio **Includes front panel audio*
-* All USB Port **Includes front panel USB 2.0 & 3.0*
-* All SATA Port
-* M.2/NGFF NVMe SSD & WiFi/BT **Need [Specific WiFi Card](https://dortania.github.io/Wireless-Buyers-Guide) & [Specific kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth)*
-* Intel VT, Power Management & Sensors
-* Radeon Graphics Acceleration, Power Management & Sensors **Will just work on [Native Radeon GPU](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html#native-amd-gpus)*
+* Sleep & wake
+* Intel I219-V ethernet
+* Realtek ALC897 audio **Includes front panel audio*
+* All USB ports **Includes front panel USB 2.0 & 3.0*
+* All SATA ports
+* M.2/NGFF NVMe SSD & WiFi/BT **Need specific [WiFi card](https://dortania.github.io/Wireless-Buyers-Guide) & [kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth)*
+* Intel VT, power management & sensors
+* Radeon graphics acceleration, power management & sensors **Will just work on [native Radeon GPU](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html#native-amd-gpus)*
 
-## How To
+## Create macOS USB installer
 
----
+You can follow [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer) or follow this easy guide
 
-### Easy Way to Create a USB Installer on Linux (Can use Live USB)
-
-* Fetch some tools
-
-```bash
-mkdir fetch-macOS
-cd fetch-macOS
-wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py
-wget https://github.com/foxlet/macOS-Simple-KVM/raw/master/tools/dmg2img
-chmod +x *
-```
+### Create a macOS recovery USB on Windows (Easy way, not really)
 
 * Fetch macOS recovery image
 
-```bash
-./fetch-macOS-v2.py
-```
-
-* Convert dmg to raw img
+First download and install [Python 3](https://www.python.org/downloads), then open PowerShell and run
 
 ```bash
-./dmg2img BaseSystem.dmg BaseSystem.img
+mkdir 'C:\macOS Recovery'
+cd 'C:\macOS Recovery'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py' -OutFile 'C:\macOS Recovery\fetch-macOS-v2.py'
+py fetch-macOS-v2.py
 ```
-
-* Write to USB
-
-```bash
-sudo dd if=BaseSystem.img of=/dev/sdX bs=100M conv=fsync status=progress
-```
-
-**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l` to see all list of storage devices*
-
-To create a USB installer on Windows or other OS please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#making-the-installer).
-
-### Fetch and Place EFI File
 
 * Fetch EFI
 
 ```bash
-git clone https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2 --depth 1 
+Invoke-WebRequest -Uri 'https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip' -OutFile 'C:\macOS Recovery\main.zip'
+Expand-Archive -Path 'C:\macOS Recovery\main.zip' -DestinationPath 'C:\macOS Recovery'
 ```
 
-* Make EFI partiton
-
-**In some case, EFI partition isn't available.*
+* Create USB recovery
 
 ```bash
-sudo parted /dev/sdX mkpart efi 0% 100%
+Format-Volume -DriveLetter M -FileSystem FAT32 -NewFileSystemLabel "MACOS-USB" -Force -Confirm:$false
+mkdir 'M:\com.apple.recovery.boot'
+Copy-Item -Path 'C:\macOS Recovery\BaseSystem*' -Destination 'M:\com.apple.recovery.boot' -Recurse
+Copy-Item -Path 'C:\macOS Recovery\OC-ASRock-H610M-HDV-M.2-main\EFI' -Destination 'M:\EFI' -Recurse
+Get-WmiObject -Query "SELECT * FROM Win32_Volume WHERE DriveLetter = 'M:'" | ForEach-Object { $_.Dismount($true, $true) }
 ```
 
-**Remember sdX is your USB flashdrive device, don't make a mistake or it will destroy your data, use `sudo fdisk -l` to see all list of storage devices.*
+**Remember disk X is your USB device, be careful you can destroy your data, use diskpart `list disk` to see all list of storage devices.*
+
+### Create a macOS recovery USB on Linux (Easy way)
+
+* Fetch macOS recovery image
+
+Open Linux terminal and run
 
 ```bash
-sudo mkfs.fat -F 32 /dev/sdXY -n EFI-USB
+mkdir macOS\ Recovery
+cd macOS\ Recovery
+wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py
+python fetch-macOS-v2.py
 ```
 
-**Remember sdXY is your EFI partion of USB installer, use `sudo fdisk -l` to see all list of storage devices.*
-
-* Mount EFI and copy to EFI Partition
+* Fetch EFI
 
 ```bash
-sudo mount /dev/sdXY /mnt
-sudo cp -r OC-ASRock-H610M-HDV-M.2/EFI /mnt
+wget https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip
+unzip main.zip
 ```
 
-**Remember sdXY is your EFI partion of USB installer, use `sudo fdisk -l` to see all list of storage devices.*
+* Create USB recovery
+```bash
+sudo mkfs.fat -F 32 /dev/sdX -n 'MACOS-USB'
+sudo mount /dev/sdX /mnt
+sudo mkdir /mnt/com.apple.recovery.boot
+sudo cp -r BaseSystem.* /mnt/com.apple.recovery.boot/
+sudo cp -r OC-ASRock-H610M-HDV-M.2-main/EFI /mnt
+sudo unmount /mnt
+```
 
-For more information please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html).
+**Remember sdX is your USB device, be careful you can destroy your data, use `sudo fdisk -l` to see all list of storage devices.*
 
-### Installation
+## Installation
 
-For the installation process please refer to [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html).
+For the installation process please refer to [Dortania's guide](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#booting-the-opencore-usb).
 
 **Take a note, please create a EFI partition at lease 200M at partitioning stage.*
 
-### Post-Installation
+## Post-installation
 
 Install EFI on macOS HDD/SSD.
 
 * Mount EFI partition
 
-Open macOS Terminal and run
+Open macOS terminal and run
 
 ```bash
 sudo mkdir /Volumes/EFI
@@ -120,25 +115,26 @@ sudo mount -t msdos /dev/diskXsY /Volumes/EFI
 
 **Remember diskXsY is your EFI disk partiton, use `sudo diskutil list` to see all list of storage devices*
 
-* Copy EFI folder to EFI Partition
+* Copy EFI folder to EFI partition
 
 ```bash
-sudo cp -rv /Volumes/EFI-USB/EFI /Volumes/EFI
+sudo cp -rv /Volumes/MACOS-USB/EFI /Volumes/EFI
 sudo umount /Volumes/EFI
 sudo rm -r /Volumes/EFI
 ```
 
-Have problems after installation?, please refer to [Dortania OpenCore Post-install](https://dortania.github.io/OpenCore-Post-Install).
+Have problems after installation?, please refer to [Dortania's guide](https://dortania.github.io/OpenCore-Post-Install).
 
 ## Important Notes
 
-* Modify memory `Manufacturer`, `PartNumber`, `SerialNumber`, `Size` and `Speed` ​​to match your system, [Read more information about memory mapping](https://dortania.github.io/OpenCore-Post-Install/universal/memory.html#mapping-our-memory).
-
 * `CpuTopologyRebuild.kext` is disabled by default, enable it if you have a CPU with P-Core and E-Core.
 
-* Don't change `MinKernel` larger or smaller than `20.0.0` to avoid problems with not being able to suspend or sleep.
+* If getting trouble with iServices generate new SMBIOS and MLB using macserial utility.
 
-* Generate new SMBIOS or just [generate new SN and MLB using macserial utility](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#using-macserial) if getting trouble with iServices.
+```bash
+cd ./Utilities/macserial
+./macserial --model "MacPro7,1"
+```
 
 ---
 

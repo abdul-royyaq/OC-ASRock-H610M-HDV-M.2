@@ -1,5 +1,10 @@
 OpenCore Changelog
 ==================
+#### v1.0.5
+- Fixed incorrect print in PCI device info dumping in `SysReport`
+- Fixed ocvalidate error messages for overlong kext paths in Kernel section, thx @corpnewt
+- Fixed kext injection compatibility issues with macOS 26
+
 #### v1.0.4
 - Added support for booting from static IPv4 address in OpenCore-specific HttpBootDxe
 - Added static IPv4 configuration options to OpenNetworkBoot
