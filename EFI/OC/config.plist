@@ -805,7 +805,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 alcid=11 agdpmod=pikera gfxrst=1 igfxonln=1 revpatch=auto,sbvmm revblock=auto</string>
+				<string>keepsyms=1 debug=0x100 alcid=11 agdpmod=pikera gfxrst=1 igfxonln=1 revpatch=auto,sbvmm revblock=auto -revbeta -lilubetaall</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 			</dict>
