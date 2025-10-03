@@ -1,6 +1,6 @@
 # OpenCore EFI for ASRock H610M-HDV/M.2
 
-Monterey, Ventura, Sonoma and Sequoia OpenCore EFI configuration for ASRock H610M-HDV/M.2
+Monterey, Ventura, Sonoma, Sequoia and (partially) Tahoe OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
 ![](https://i.imgur.com/jHFOiBt.png)
 
@@ -75,6 +75,7 @@ wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py
 python fetch-macOS-v2.py
 ```
 
+
 * Fetch EFI
 
 ```bash
@@ -83,6 +84,7 @@ unzip main.zip
 ```
 
 * Create USB recovery
+
 ```bash
 sudo mkfs.fat -F 32 /dev/sdX -n 'MACOS-USB'
 sudo mount /dev/sdX /mnt
@@ -129,11 +131,33 @@ Have problems after installation?, please refer to [Dortania's guide](https://do
 
 * `CpuTopologyRebuild.kext` is disabled by default, enable it if you have a CPU with P-Core and E-Core.
 
-* If getting trouble with iServices generate new SMBIOS and MLB using macserial utility.
+* If getting trouble with iServices generate new SMBIOS using macserial utility.
 
 ```bash
-cd ./Utilities/macserial
 ./macserial --model "MacPro7,1"
+```
+
+Output will looks like this (SN left, MLB right):
+
+```bash
+F5KGLNYDP7QM | F5K143802GUK3F7AD
+F5KCFCZUP7QM | F5K0112074NK3F7JA
+F5KF6NY6P7QM | F5K105609GUK3F78C
+F5KH9JZBP7QM | F5K208101CDK3F7UE
+F5KJV4ZEP7QM | F5K251100GUK3F71H
+F5KLDVZFP7QM | F5K3373104NK3F7A8
+F5KZ40Y7P7QM | F5K930102GUK3F78C
+F5KL1HYEP7QM | F5K3273064NK3F78C
+F5KK9QY5P7QM | F5K308600J9K3F7AD
+F5KKF0WPP7QM | F5K3115014NK3F71M
+```
+
+* macOS Tahoe recovery experiencing problem with GPU acceleration enabled, disable `WhateverGreen.kext` first to start fresh install of macOS Tahoe.
+
+* There is way to get macOS Tahoe recovery image (if `fetch-macOS-v2.py` utility didnt provide), using macrecovery utility.
+
+```
+python macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download
 ```
 
 ---
