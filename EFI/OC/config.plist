@@ -296,7 +296,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>    <!-- change to <false/> to disable gpu acceleration -->
+				<false/>    <!-- change to <true/> to enable gpu acceleration -->
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/WhateverGreen</string>
 				<key>MaxKernel</key>
@@ -408,7 +408,7 @@
 			<key>LauncherPath</key>
 			<string>Default</string>
 			<key>PickerAttributes</key>
-			<integer>17</integer>
+			<integer>145</integer>
 			<key>PickerAudioAssist</key>
 			<false/>
 			<key>PickerMode</key>
@@ -805,7 +805,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 alcid=11 agdpmod=pikera gfxrst=1 igfxonln=1 revpatch=auto,sbvmm revblock=auto -revbeta -lilubetaall</string>
+				<string>-v keepsyms=1 debug=0x100 alcid=11 agdpmod=pikera gfxrst=1 igfxonln=1 revpatch=auto,sbvmm revblock=auto</string>    <!-- remove -v to disable print verbose log at boot-->
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 			</dict>
@@ -880,7 +880,7 @@
 			<string>Auto</string>
 			<key>SystemProductName</key>
 			<string>MacPro7,1</string>
-			<key>System</key>
+			<key>SystemSerialNumber</key>
 			<string>F5KZ30QBP7QM</string>    <!-- SN, change if necessary -->
 			<key>SystemUUID</key>
 			<string>9CE61F2C-AA56-4416-A41D-4DBE0D452682</string>

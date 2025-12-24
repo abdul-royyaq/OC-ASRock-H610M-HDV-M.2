@@ -1,14 +1,14 @@
 # OpenCore EFI for ASRock H610M-HDV/M.2
 
-Monterey, Ventura, Sonoma, Sequoia and (partially) Tahoe OpenCore EFI configuration for ASRock H610M-HDV/M.2
+Monterey, Ventura, Sonoma, Sequoia and Tahoe OpenCore EFI configuration for ASRock H610M-HDV/M.2
 
-![](https://i.imgur.com/jHFOiBt.png)
+![](https://i.imgur.com/0IGravn.png)
 
 ---
 
 ## System Configuration
 
-* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (factory BIOS), 9.01 - 19.03*
+* ASRock H610M-HDV/M.2 **Tested on BIOS ver. 4.02 (factory BIOS), 9.01 - 20.02*
 * Intel Core i3-12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W)
 * Team T-create Classic 2*8GB DDR4 3200Mhz
@@ -32,15 +32,11 @@ You can follow [Dortania's guide](https://dortania.github.io/OpenCore-Install-Gu
 
 ### Create a macOS recovery USB on Windows (Easy way, not really)
 
-* Fetch macOS recovery image
-
 First download and install [Python 3](https://www.python.org/downloads), then open PowerShell and run
 
 ```bash
 mkdir 'C:\macOS Recovery'
 cd 'C:\macOS Recovery'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py' -OutFile 'C:\macOS Recovery\fetch-macOS-v2.py'
-py fetch-macOS-v2.py
 ```
 
 * Fetch EFI
@@ -50,37 +46,44 @@ Invoke-WebRequest -Uri 'https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/
 Expand-Archive -Path 'C:\macOS Recovery\main.zip' -DestinationPath 'C:\macOS Recovery'
 ```
 
+* Get latest macOS Recovery image
+
+```bash
+py OC-ASRock-H610M-HDV-M.2-main\Utilities\macrecovery\macrecovery.py -b Mac-CFF7D910A743CAAF -m F5K929902J9FHDDCB -os latest
+```
+
 * Create USB recovery
 
 ```bash
-Format-Volume -DriveLetter M -FileSystem FAT32 -NewFileSystemLabel "MACOS-USB" -Force -Confirm:$false
-mkdir 'M:\com.apple.recovery.boot'
-Copy-Item -Path 'C:\macOS Recovery\BaseSystem*' -Destination 'M:\com.apple.recovery.boot' -Recurse
-Copy-Item -Path 'C:\macOS Recovery\OC-ASRock-H610M-HDV-M.2-main\EFI' -Destination 'M:\EFI' -Recurse
-Get-WmiObject -Query "SELECT * FROM Win32_Volume WHERE DriveLetter = 'M:'" | ForEach-Object { $_.Dismount($true, $true) }
+Format-Volume -DriveLetter X -FileSystem FAT32 -NewFileSystemLabel "MACOS-USB" -Force -Confirm:$false
+mkdir 'X:\com.apple.recovery.boot'
+Copy-Item -Path 'C:\macOS Recovery\BaseSystem*' -Destination 'X:\com.apple.recovery.boot' -Recurse
+Copy-Item -Path 'C:\macOS Recovery\OC-ASRock-H610M-HDV-M.2-main\EFI' -Destination 'X:\EFI' -Recurse
+Get-WmiObject -Query "SELECT * FROM Win32_Volume WHERE DriveLetter = 'X:'" | ForEach-Object { $_.Dismount($true, $true) }
 ```
 
-**Remember disk X is your USB device, be careful you can destroy your data, use diskpart `list disk` to see all list of storage devices.*
+**Remember drive letter X: is your USB device, be careful you can destroy your data, use diskpart `list disk` to see all list of storage devices.*
 
 ### Create a macOS recovery USB on Linux (Easy way)
-
-* Fetch macOS recovery image
 
 Open Linux terminal and run
 
 ```bash
 mkdir macOS\ Recovery
 cd macOS\ Recovery
-wget https://raw.githubusercontent.com/kholia/OSX-KVM/master/fetch-macOS-v2.py
-python fetch-macOS-v2.py
 ```
-
 
 * Fetch EFI
 
 ```bash
 wget https://github.com/abdul-royyaq/OC-ASRock-H610M-HDV-M.2/archive/refs/heads/main.zip
 unzip main.zip
+```
+
+* Get latest macOS Recovery image
+
+```bash
+python OC-ASRock-H610M-HDV-M.2-main/Utilities/macrecovery/macrecovery.py -b Mac-CFF7D910A743CAAF -m F5K929902J9FHDDCB -os latest
 ```
 
 * Create USB recovery
@@ -152,13 +155,7 @@ F5KK9QY5P7QM | F5K308600J9K3F7AD
 F5KKF0WPP7QM | F5K3115014NK3F71M
 ```
 
-* macOS Tahoe recovery experiencing problem with GPU acceleration enabled, disable `WhateverGreen.kext` first to start fresh install of macOS Tahoe.
-
-* There is way to get macOS Tahoe recovery image (if `fetch-macOS-v2.py` utility didnt provide), using macrecovery utility.
-
-```
-python macrecovery.py -b Mac-CFF7D910A743CAAF -m 00000000000000000 -os latest download
-```
+* `WhateverGreen.kext` is disabled because macOS Tahoe recovery experiencing problem with GPU acceleration enabled.
 
 ---
 
