@@ -12,7 +12,7 @@ Monterey, Ventura, Sonoma, Sequoia and Tahoe OpenCore EFI configuration for ASRo
 * Intel Core i3-12100F
 * Sapphire Pulse RX 560 2G G5 14 CU (45W)
 * Team T-create Classic 2*8GB DDR4 3200Mhz
-* SK hynix BC901 NVMe 256GB
+* SK hynix BC901 NVMe 256GB (on PCIe x1 to M.2/NGFF riser)
 
 ## Confirmed Working
 
@@ -24,7 +24,7 @@ Monterey, Ventura, Sonoma, Sequoia and Tahoe OpenCore EFI configuration for ASRo
 * All SATA ports
 * M.2/NGFF NVMe SSD & WiFi/BT **Need specific [WiFi card](https://dortania.github.io/Wireless-Buyers-Guide) & [kext](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#wifi-and-bluetooth)*
 * Intel VT, power management & sensors
-* Radeon graphics acceleration, power management & sensors **Will just work on [native Radeon GPU](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html#native-amd-gpus)*
+* Radeon graphics acceleration, power management & sensors **Will just work on [native Radeon GPUs](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html#native-amd-gpus)*
 
 ## Create macOS USB installer
 
@@ -156,6 +156,8 @@ F5KKF0WPP7QM | F5K3115014NK3F71M
 ```
 
 * `WhateverGreen.kext` is disabled because macOS Tahoe recovery experiencing problem with GPU acceleration enabled.
+
+* When all works, boring boot verbose log can be disable by removing `-v` in the `boot-args`.
 
 ---
 
